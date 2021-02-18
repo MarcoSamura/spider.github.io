@@ -45,7 +45,6 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: none;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -58,9 +57,9 @@ p {
 @media screen and (max-width: 960px) {
   .container {
     -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
     height: auto;
     overflow: none;
   }
@@ -107,11 +106,21 @@ p {
     width: 100%;
     -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
+    position: relative;
+    top: -40px;
   }
 }
 
 .buttons {
   z-index: 1;
+}
+
+@media screen and (max-width: 960px) {
+  .buttons {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
 }
 
 .btn {
@@ -173,6 +182,12 @@ p {
   opacity: 1;
 }
 
+@media screen and (max-width: 960px) {
+  .btn, .btn-secondary {
+    text-align: center;
+  }
+}
+
 .btn-secondary {
   display: inline-block;
   border: 1px solid #EA1D22;
@@ -185,6 +200,12 @@ p {
   text-transform: uppercase;
   background: transparent;
   position: relative;
+}
+
+@media screen and (max-width: 960px) {
+  .btn-secondary {
+    display: none;
+  }
 }
 
 .btn-secondary::after {
@@ -235,13 +256,18 @@ p {
   background: linear-gradient(110deg, #0A0C10 25%, rgba(11, 12, 16, 0.8) 50%, #0A0C10 70%);
 }
 
+@media screen and (max-width: 960px) {
+  .bg-video {
+    display: none;
+  }
+}
+
 .bg-loader {
   width: 100%;
   height: 100vh;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 999;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -251,8 +277,8 @@ p {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  z-index: 999;
   background: linear-gradient(225deg, #EA1D22 0%, #B31317 100%);
-  overflow: hidden;
 }
 
 header {
@@ -338,17 +364,34 @@ header {
   height: 40px;
 }
 
-.bx {
+.container-icone {
   display: none;
 }
 
 @media screen and (max-width: 960px) {
-  .bx {
-    width: 48px;
-    height: 48px;
-    background: #EDF1F7;
-    border-radius: 8px;
-    display: block;
+  .container-icone {
+    display: inline-block;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .container-icone .bar1 {
+    width: 35px;
+    height: 2px;
+    background-color: #E5E9EF;
+    margin: 6px 0;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .container-icone .bar2 {
+    width: 35px;
+    height: 2px;
+    background-color: #E5E9EF;
+    margin: 10px 0;
+    border-radius: 5px;
   }
 }
 

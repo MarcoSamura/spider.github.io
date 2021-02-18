@@ -8,11 +8,10 @@
     padding: 36px 16px;
     height: 80vh;
     display: flex;
-    overflow: none ;
     flex-direction: row;
     align-items: center;
     @include responsive() {
-       flex-direction: column;
+       flex-direction: column-reverse;
        height: auto;
        overflow: none ;
     }
@@ -41,10 +40,16 @@
     @include responsive() {
         width: 100%;
         transform: translate3d(0, 0, 0);
+        position: relative;
+        top: -40px;
     }
 }
 .buttons {
     z-index: 1;
+
+    @include responsive() {
+        display: flex;
+    }
 }
 .btn {
     display: inline-block;
@@ -58,6 +63,7 @@
     background: linear-gradient(267.72deg, $red-light 0.88%, $red 100%);
     position: relative;
 
+   
     &::after {
         content:'';
         display: block;
@@ -107,6 +113,11 @@
           }
     }
 }
+.btn, .btn-secondary {
+    @include responsive() {
+        text-align: center; 
+    }
+}
 .btn-secondary {
     display: inline-block;
     border:1px solid $red;
@@ -118,7 +129,9 @@
     text-transform: uppercase;
     background: transparent;
     position: relative;
-
+    @include responsive() {
+        display:none;
+     }
     &::after {
         content: '';
         display: block;
@@ -153,7 +166,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
     &::after {
         content: '';
         width: 100%;
@@ -168,6 +180,9 @@
         rgba(11, 12, 16, 0.80) 50%,
         $blue-dark 70%);
     }
+    @include responsive() {
+        display:none;
+    }
 }
 
 .bg-loader {
@@ -175,12 +190,11 @@
     height: 100vh;
     position: absolute;
     top: 0;
-    left:0;
-    z-index: 999;
+    left: 0;
+  
     display: flex;
     justify-content: center;
     align-items: center;
-
+    z-index: 999;
     background: linear-gradient(225deg, $red 0%, $red-dark 100%);
-    overflow: hidden;
 }
